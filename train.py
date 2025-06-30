@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-import pickle
+import joblib
 
 # Load data
 df = pd.read_csv("titanic.csv")
@@ -50,10 +50,10 @@ print(coefficients.sort_values(by="Coefficient", ascending=False))
 
 # Save model
 with open("titanic_model.pkl", "wb") as f:
-    pickle.dump(model, f)
+    joblib.dump(model, f)
 
 # Save scaler
 with open("scaler.pkl", "wb") as f:
-    pickle.dump(scaler, f)
+    joblib.dump(scaler, f)
 
 print("✅ Model and scaler saved successfully.")
