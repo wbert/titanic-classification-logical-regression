@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 import pandas as pd
 
 
@@ -8,10 +8,10 @@ import pandas as pd
 @st.cache_resource
 def load_model_and_scaler():
     with open("titanic_model.pkl", "rb") as model_file:
-        model = pickle.load(model_file)
+        model = joblib.load(model_file)
 
     with open("scaler.pkl", "rb") as scaler_file:
-        scaler = pickle.load(scaler_file)
+        scaler = joblib.load(scaler_file)
 
     return model, scaler
 
